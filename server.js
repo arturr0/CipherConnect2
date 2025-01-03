@@ -751,7 +751,7 @@ socket.on('requestGroupMessages', (groupId) => {
                     return;
                 }
 
-                const groupAvatar = group?.avatar || null;
+                const groupAvatar = group.avatar || null;
                 const groupName = group.name;
 
                 // Step 4: Retrieve group messages along with sender's name
@@ -796,7 +796,7 @@ socket.on('requestGroupMessages', (groupId) => {
                             return;
                         }
 
-                        const unreadGroupCount = row?.unreadGroupCount || 0;
+                        const unreadGroupCount = row.unreadGroupCount || 0;
 
                         // Step 6: Send messages, group info, and unread count to the client
                         socket.emit('groupMessages', { 
@@ -1852,7 +1852,7 @@ socket.on('createGroup', ({ groupName, invited, username, avatar }) => {
     groupCreationStatus.set(socket.id, true);
     console.log(groupName, invited, username, avatar);
 
-    const extension = avatar?.fileType?.split('/')[1];
+    const extension = avatar.fileType.split('/')[1];
     const validExtensions = ['jpeg', 'jpg', 'png', 'gif', 'bmp', 'svg', 'webp'];
     let relativePath = null;
 
